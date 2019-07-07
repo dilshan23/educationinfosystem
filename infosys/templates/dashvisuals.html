@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+
+Note :The follwing charts will be automaticaly updated in real time when school databses are updated.
+
+<a href="https://steemitimages.com/p/2bP4pJr4wVimqCWjYimXJe2cnCgnLJx4C3nfqjfCCxD?format=match&mode=fit">animated movies like this will be added in future</a>
+		
+<div class="container">
+
+        {{ div | safe }}
+        {{ script | safe }}
+
+    </div>
+
+    <div class = " container">
+
+        {{ div1 | safe }}
+        {{ script1 | safe }}
+
+
+    </div>
+
+
+
+
+
+{% endblock %}

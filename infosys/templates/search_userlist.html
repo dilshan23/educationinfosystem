@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+<h1>Messages Table</h1>
+  <form method="GET">
+    {{ filter.form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+ 
+
+
+    <table class="table table-bordered table-striped">
+
+  	<thead>
+	  <tr>
+		<th>name</th>
+		<th>name</th>
+		<th>email </th>
+		<th>message </th>
+
+		
+		
+	
+
+
+
+		
+	  </tr>
+	</thead>
+
+
+	<tbody>
+      {% for element in filter.qs %}
+     
+	  <tr>
+		<td>{{element.firstname}} </td>
+		<td>{{element.lastname}} </td>
+		<td>{{element.email}} </td>
+		<td>{{element.comment}}</td>
+		
+	
+
+
+	  </tr>
+	  {% endfor %}
+
+	 
+
+	</tbody>
+
+  
+  
+{% endblock %}

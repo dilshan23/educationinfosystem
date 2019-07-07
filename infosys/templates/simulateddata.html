@@ -1,0 +1,85 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+ 
+
+
+
+
+    	 <h1>Term Test Marks </h1>
+
+    	 
+	 
+
+ 
+
+
+
+  <table class="table table-bordered table-striped">
+
+  	<thead>
+	  <tr>
+		<th>Studnet ID</th>
+		<th>Subject </th>
+		<th>OL Grade </th>
+		<th>Grade 6 Term 1 Marks </th>
+		<th>Grade 6 Term 2 Marks</th>
+		<th>Grade 6 Term 3 Marks</th>
+		<th>Grade 7 Term 1 Marks</th>
+		
+	
+
+
+
+		
+	  </tr>
+	</thead>
+
+
+	<tbody>
+      {% for element in data5 %}
+     
+	  <tr>
+		<td>{{element.id}} </td>
+		<td>{{element.subject}} </td>
+		<td>{{element.Olgrade}} </td>
+		<td>{{element.V1}}</td>
+		<td>{{element.V2}}</td>
+		<td>{{element.V3}}</td>
+		<td>{{element.V4}}</td>
+	
+
+
+	  </tr>
+	  {% endfor %}
+
+	 
+
+	</tbody>
+
+
+
+
+
+
+
+  </table>
+
+
+
+    	
+
+
+
+
+
+
+
+
+
+   
+   {% endblock  %}

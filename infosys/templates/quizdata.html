@@ -1,0 +1,189 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+ 
+
+
+
+
+    	 <h1>Registered Users-Online Auto Grading System</h1>
+    	 <a href="https://polar-retreat-22992.herokuapp.com/"">Click here to go to Auto Grading System</a>
+
+    	 <p>Data is updating in real time</p>
+    	 <p>benifits : can find weakness in skills of students in individual students,or class as a whole ,or even whole zone</p>
+
+    	 
+	 
+
+ 
+
+
+
+  <table class="table table-bordered table-striped">
+
+  	<thead>
+	  <tr>
+		<th>Quiz System User Id</th>
+		<th>Student Id</th>
+		<th>Last Login </th>
+		
+		
+	
+
+
+
+		
+	  </tr>
+	</thead>
+
+
+	<tbody>
+      {% for element in data1 %}
+     
+	  <tr>
+		<td>{{element.id}} </td>
+		<td>{{element.username}} </td>
+		<td>{{element.last_login}} </td>
+		
+	
+
+
+	  </tr>
+	  {% endfor %}
+
+	 
+
+	</tbody>
+
+
+
+
+
+
+
+  </table>
+
+<h2>Quizes Details</h2>
+<table class="table table-bordered table-striped">
+
+  	<thead>
+	  <tr>
+		<th>Quiz Id</th>
+		<th>Title</th>
+		
+		
+		
+	
+
+
+
+		
+	  </tr>
+	</thead>
+
+
+	<tbody>
+      {% for element in data2 %}
+     
+	  <tr>
+		<td>{{element.id}} </td>
+		<td>{{element.title}} </td>
+		
+		
+	
+
+
+	  </tr>
+	  {% endfor %}
+
+	 
+
+	</tbody>
+
+
+
+
+
+
+
+  </table>
+
+    	
+<h2>Quizes Marks</h2>
+<table class="table table-bordered table-striped">
+
+  	<thead>
+	  <tr>
+		<th>User Id</th>
+		<th>Quiz id</th>
+		<th>Complete</th>
+		<th>Score</th>
+		<th>Answers</th>
+		<th>Start Time</th>
+		<th>End Time</th>
+		
+		
+		
+	
+
+
+
+		
+	  </tr>
+	</thead>
+
+
+	<tbody>
+      {% for element in data3 %}
+     
+	  <tr>
+		<td>{{element.user_id}} </td>
+		<td>{{element.quiz_id}} </td>
+		<td>{{element.complete}} </td>
+		<td>{{element.current_score}} </td>
+		<td>{{element.user_answers}} </td>
+		<td>{{element.start}} </td>
+		<td>{{element.end}} </td>
+
+
+
+		
+
+
+
+
+
+		
+		
+	
+
+
+	  </tr>
+	  {% endfor %}
+
+	 
+
+	</tbody>
+
+
+
+
+
+
+
+  </table>
+
+
+
+
+
+
+
+
+
+   
+   {% endblock  %}

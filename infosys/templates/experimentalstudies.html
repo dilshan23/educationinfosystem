@@ -1,0 +1,326 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#1" aria-controls="1" role="tab" data-toggle="tab">Students</a></li>
+    <li role="presentation"><a href="#2" aria-controls="2" role="tab" data-toggle="tab">Teachers</a></li>
+    <li role="presentation"><a href="#3" aria-controls="3" role="tab" data-toggle="tab">National Exam Results List</a></li>
+    <li role="presentation"><a href="#4" aria-controls="4" role="tab" data-toggle="tab">Term Tests Results</a></li>
+    <li role="presentation"><a href="#5" aria-controls="5" role="tab" data-toggle="tab">Simulated Term Tests Results</a></li>
+  </ul>
+
+ 
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="1">
+
+
+    	 <h1>Students List </h1>
+	 
+
+ 
+
+
+
+  <table class="table table-bordered table-striped">
+
+  	<thead>
+	  <tr>
+	  	<th>School Name</th>
+		<th>Student Id</th>
+		<th>Student Name</th>
+		<th>Telephone Numebr </th>
+		<th>Date of Birth </th>
+		<th>Age Now</th>
+		
+	  </tr>
+	</thead>
+
+
+	<tbody>
+      {% for element in data1 %}
+     
+	  <tr>
+	  	<td>{{element.school}} </td>
+		<td>{{element.studentId}} </td>
+		<td>{{element.nama}} </td>
+		<td>{{element.telephone}}</td>
+		<td>{{element.birthdate}}</td>
+		<td>{{element.Age}}</td>
+	  </tr>
+	  {% endfor %}
+
+	 
+
+	</tbody>
+
+
+
+
+
+
+
+  </table>
+    
+
+
+
+    	
+
+
+
+
+    </div>
+    <div role="tabpanel" class="tab-pane" id="2">
+       <h1>Teachers List </h1>
+	 
+
+ 
+
+
+
+  <table class="table table-bordered table-striped">
+
+  	<thead>
+	  <tr>
+		<th>Teacher Id</th>
+		<th>Teacher Name</th>
+		<th>Appointment Subject</th>
+		<th>Current School Duration</th>
+		<th>Highest Education</th>
+		<th>Professional Qualification </th>
+		<th>Gender</th>
+		<th>Email Address</th>
+		<th>Telephone Number</th>
+
+
+
+		
+	  </tr>
+	</thead>
+
+
+	<tbody>
+      {% for element in data2 %}
+     
+	  <tr>
+		<td>{{element.id}} </td>
+		<td>{{element.name}} </td>
+		<td>{{element.subject}}</td>
+		<td>{{element.experiance}}</td>
+		<td>{{element.education}}</td>
+		<td>{{element.qualification}}</td>
+		<td>{{element.gender}}</td>
+		<td>{{element.email}}</td>
+		<td>{{element.telephone}}</td>
+
+
+
+
+
+	  </tr>
+	  {% endfor %}
+
+	 
+
+	</tbody>
+
+
+
+
+
+
+
+  </table>
+
+
+    	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div role="tabpanel" class="tab-pane" id="3">
+
+    	
+         
+
+
+
+    	 <h1>National Exam Resluts </h1>
+	 
+
+ 
+
+
+
+  <table class="table table-bordered table-striped">
+
+  	<thead>
+	  <tr>
+	  	<th>School Name</th>
+		<th>Year</th>
+		<th>Student id</th>
+		<th>Student Name</th>
+		<th>Scholarship Marks</th>
+
+
+	
+
+
+
+		
+	  </tr>
+	</thead>
+
+
+	<tbody>
+      {% for element in data3 %}
+     
+	  <tr>
+	  	<td>{{element.school}} </td>
+		<td>{{element.year}} </td>
+		<td>{{element.studentId}} </td>
+		<td>{{element.nama}} </td>
+
+		<td>{{element.grade5}}</td>
+	
+
+
+	  </tr>
+	  {% endfor %}
+
+	 
+
+	</tbody>
+
+
+
+
+
+
+
+  </table>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+   
+    <div role="tabpanel" class="tab-pane" id="4">
+
+
+
+
+    	 <h1>Term Test Marks </h1>
+
+    	 
+	 
+
+ 
+
+
+
+  <table class="table table-bordered table-striped">
+
+  	<thead>
+	  <tr>
+		<th>Studnet ID</th>
+		<th>Studnet Name</th>
+		<th>Grade</th>
+		<th>Year</th>
+		<th>Term</th>
+		<th>Subject</th>
+		<th>Marks</th>
+		
+	
+
+
+
+		
+	  </tr>
+	</thead>
+
+
+	<tbody>
+      {% for element in data4 %}
+     
+	  <tr>
+		<td>{{element.studentId}} </td>
+		<td>{{element.nama}} </td>
+		<td>{{element.grade}} </td>
+		<td>{{element.year}}</td>
+		<td>{{element.term}}</td>
+		<td>{{element.subject}}</td>
+		<td>{{element.marks}}</td>
+	
+
+
+	  </tr>
+	  {% endfor %}
+
+	 
+
+	</tbody>
+
+
+
+
+
+
+
+  </table>
+
+
+
+    	
+
+
+
+
+
+
+
+
+
+    </div>
+
+ 
+
+
+
+
+   
+  </div>
+
+</div>
+
+
+
+
+
+
+    
+{% endblock  %}
