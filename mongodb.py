@@ -1,4 +1,4 @@
-# mongodb://dil23:chess004@ds159866.mlab.com:59866/munwaththa
+
 from pymongo import *
 import pandas as pd
 
