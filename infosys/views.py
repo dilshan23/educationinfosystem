@@ -50,7 +50,7 @@ def showform(request):
     form= BlogCommentsForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('index')   ## dil -----yay !!!
+        return redirect('index')  
     context= {'form': form }
         
     return render(request, 'contact.html', context)
@@ -75,14 +75,6 @@ def index(request):
     print(dataposts1)
 
    
-
-    
-
-
-
-
-
-
     #postsDf = pd.DataFrame(Post.objects.all)
     # return HttpResponse('Hello from Python!')
     return render(request, "index.html",context)
@@ -93,7 +85,6 @@ def schools(request):
 
 def research(request):
 
-    
     return render(request, "cddsd.html")
 
 def dea(request):
