@@ -9,9 +9,9 @@ postgres=# CREATE TABLE student (
 
 
 
-postgres=# INSERT INTO student (name, age, marks, grade) VALUES
-    ('John Doe', 20, 85, 'B'),
-    ('Jane Smith', 22, 92, 'A'),
-    ('Michael Johnson', 19, 78, 'C'),
-    ('Emily Brown', 21, 95, 'A'),
-    ('William Lee', 23, 70, 'C');
+INSERT INTO student (id, name, age, marks, grade) VALUES
+    (10001, 'John Doe', 20, 85, 'B'),
+    (10002, 'Jane Smith', 22, 92, 'A'),
+    (10003, 'Michael Johnson', 19, 78, 'C'),
+    (10004, 'Emily Brown', 21, 95, 'A'),
+    (10005, 'William Lee', 23, 70, 'C');
