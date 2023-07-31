@@ -11,10 +11,11 @@ def get_student_data():
         password=''
     )
     cursor = connection.cursor()
-    cursor.execute('SELECT name, age, marks, grade FROM student')
+    cursor.execute('SELECT id,name, age, marks, grade FROM student')
     data = cursor.fetchall()
     cursor.close()
     connection.close()
+    print(data)
     return data
 
 # Function to generate the PDF report
@@ -25,14 +26,14 @@ def generate_pdf_report(data):
     # Set up the PDF content
     c.setFont("Helvetica", 12)
     c.drawString(100, 800, "Student Report")
-    c.drawString(100, 770, "Name | Age | Marks | Grade")
+    c.drawString(100, 770, "ID | Name | Age | Marks | Grade")
     c.drawString(100, 750, "-" * 60)
 
     # Iterate through the data and add it to the PDF
     y = 730
     for student in data:
-        name, age, marks, grade = student
-        student_info = f"{name} | {age} | {marks} | {grade}"
+        
+        student_info = f"{student[0]} | {student[1]} | {student[2]} | {student[3]}  | {student[4]}"
         c.drawString(100, y, student_info)
         y -= 20
 
