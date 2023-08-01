@@ -159,3 +159,33 @@ VALUES
     ('202', 'Grade 2', 2, 2), -- Classroom 202 with subject English taught by teacher Bob
     ('303', 'Grade 3', 3, 2); -- Classroom 303 with subject Science taught by teacher Bob
 
+
+-- Modify class room table
+
+-- Insert data into the ClassRoom table with subject and teacher assignments
+INSERT INTO ClassRoom (room_number, grade_level, subject_id, teacher_id)
+VALUES
+    ('101', 'Grade 1', 1, 1), -- Classroom 101 with subject Math taught by teacher Alice
+    ('202', 'Grade 2', 2, 2), -- Classroom 202 with subject English taught by teacher Bob
+    ('303', 'Grade 3', 3, 2); -- Classroom 303 with subject Science taught by teacher Bob
+
+
+postgres=# SELECT
+    c.room_number AS classroom,
+    c.grade_level AS grade,
+    s.subject_name AS subject,
+    t.first_name || ' ' || t.last_name AS teacher_name
+FROM
+    ClassRoom c
+INNER JOIN
+    Subject s ON c.subject_id = s.subject_id
+INNER JOIN
+    Teacher t ON c.teacher_id = t.teacher_id;
+ classroom |  grade  | subject | teacher_name  
+-----------+---------+---------+---------------
+ 101       | Grade 1 | English | Alice Johnson
+ 202       | Grade 2 | Math    | Bob Anderson
+ 303       | Grade 3 | Science | Bob Anderson
+(3 rows)
+
+
