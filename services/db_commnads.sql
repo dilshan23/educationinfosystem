@@ -5,14 +5,18 @@ CREATE TABLE Student (
     last_name VARCHAR(100) NOT NULL,
     date_of_birth DATE,
     address TEXT,
-    email VARCHAR(100)
+    email VARCHAR(100),
+    whatsapp VARCHAR(100),
 );
 
--- Insert data into the Student table
-INSERT INTO Student (first_name, last_name, date_of_birth, address, email)
+INSERT INTO Students (name, date_of_birth, address, email, whatsapp)
 VALUES
-    ('John', 'Doe', '1995-03-15', '123 Main St, City', 'john.doe@example.com'),
-    ('Jane', 'Smith', '1996-08-20', '456 Elm St, Town', 'jane.smith@example.com');
+    ('John Doe', '1995-08-15', '123 Main St, City', 'john.doe@example.com', '+1234567890'),
+    ('Jane Smith', '1998-04-20', '456 Elm St, Town', 'jane.smith@example.com', '+9876543210'),
+    ('Michael Johnson', '1999-12-10', '789 Oak St, Village', 'michael.johnson@example.com', '+1112223334'),
+    ('Emily Brown', '1997-07-25', '101 Maple St, County', 'emily.brown@example.com', '+4445556667'),
+    ('William Lee', '2000-02-05', '222 Pine St, Suburb', 'william.lee@example.com', '+8889990001');
+
 
 
 
