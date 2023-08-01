@@ -1,31 +1,29 @@
-<!-- src/App.vue -->
-<template>
-  <div id="app">
-    <StudentsList />
-    <ReportForm />
-    <AdminLogin />
-  </div>
-</template>
+<script setup>
+import { ref, computed } from 'vue'
+import HelloWorld from './components/AdminLogin.vue'
+import ReportForum from './components/ReportForm.vue'
+import StudentList from './components/StudentsList.vue'
 
-<script>
-import StudentsList from './components/StudentsList.vue';
-import ReportForm from './components/ReportForm.vue';
-import AdminLogin from './components/AdminLogin.vue';
+const routes = {
+  '/': HelloWorld,
+  '/students': StudentList,
+  '/reports': ReportForum,
+}
 
+const currentPath = ref(window.location.hash)
 
-export default {
-  name: 'App',
-  components: {
-    StudentsList,
-    ReportForm,
-    AdminLogin
-  },
-};
+window.addEventListener('hashchange', () => {
+  currentPath.value = window.location.hash
+})
+
+const currentView = computed(() => {
+  return routes[currentPath.value.slice(1) || '/'] 
+})
 </script>
 
-<style>
-#app {
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 20px;
-}
-</style>
+<template>
+  <a href="#/">Home</a> |
+  <a href="#/students">Students</a> |
+  <a href="#/reports">Reports</a>
+  <component :is="currentView" />
+</template>
