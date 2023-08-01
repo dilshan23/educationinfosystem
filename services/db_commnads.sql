@@ -149,3 +149,13 @@ WHERE t.term = 'Term 1' AND s.student_id = 1;
  John Doe | 101         | English |    85 | 2023
 
 
+
+-- Modify class room table
+
+-- Insert data into the ClassRoom table with subject and teacher assignments
+INSERT INTO ClassRoom (room_number, grade_level, subject_id, teacher_id)
+VALUES
+    ('101', 'Grade 1', 1, 1), -- Classroom 101 with subject Math taught by teacher Alice
+    ('202', 'Grade 2', 2, 2), -- Classroom 202 with subject English taught by teacher Bob
+    ('303', 'Grade 3', 3, 2); -- Classroom 303 with subject Science taught by teacher Bob
+
