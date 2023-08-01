@@ -1,20 +1,9 @@
-postgres=# CREATE TABLE student (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    age INTEGER,
-    marks FLOAT,
-    grade CHAR(1)
-);
-
-
-
-
-INSERT INTO student (id, name, age, marks, grade) VALUES
-    (10001, 'John Doe', 20, 85, 'B'),
-    (10002, 'Jane Smith', 22, 92, 'A'),
-    (10003, 'Michael Johnson', 19, 78, 'C'),
-    (10004, 'Emily Brown', 21, 95, 'A'),
-    (10005, 'William Lee', 23, 70, 'C');
+postgres=# INSERT INTO student (id,name, age, marks, grade) VALUES
+    (0001,'John Doe', 20, 85, 'B'),
+    (0002,'Jane Smith', 22, 92, 'A'),
+    (0003,'Michael Johnson', 19, 78, 'C'),
+    (0004,'Emily Brown', 21, 95, 'A'),
+    (0005,'William Lee', 23, 70, 'C');
 
 
 
@@ -150,15 +139,6 @@ WHERE t.term = 'Term 1' AND s.student_id = 1;
 
 
 
--- Modify class room table
-
--- Insert data into the ClassRoom table with subject and teacher assignments
-INSERT INTO ClassRoom (room_number, grade_level, subject_id, teacher_id)
-VALUES
-    ('101', 'Grade 1', 1, 1), -- Classroom 101 with subject Math taught by teacher Alice
-    ('202', 'Grade 2', 2, 2), -- Classroom 202 with subject English taught by teacher Bob
-    ('303', 'Grade 3', 3, 2); -- Classroom 303 with subject Science taught by teacher Bob
-
 
 -- Modify class room table
 
@@ -187,5 +167,7 @@ INNER JOIN
  202       | Grade 2 | Math    | Bob Anderson
  303       | Grade 3 | Science | Bob Anderson
 (3 rows)
+
+
 
 
