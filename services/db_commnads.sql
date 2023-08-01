@@ -170,4 +170,49 @@ INNER JOIN
 
 
 
+--   ADD year to classroom table
+
+
+-- To update the "ClassRoom" table to include the "year" column and add the corresponding data, you need to use the ALTER TABLE statement to add the new column and then use UPDATE statements to populate the "year" values for each classroom.
+
+-- Let's first modify the "ClassRoom" table:
+
+-- sql
+-- Copy code
+-- -- Step 1: Add the "year" column to the ClassRoom table
+ALTER TABLE ClassRoom
+ADD COLUMN year INTEGER;
+-- Now, you can insert the data into the "ClassRoom" table along with the "year" information:
+
+-- sql
+-- Copy code
+-- -- Step 2: Insert data into the ClassRoom table with subject, teacher, and year assignments
+INSERT INTO ClassRoom (room_number, grade_level, subject_id, teacher_id, year)
+VALUES
+    ('101', 'Grade 1', 1, 1, 2023), -- Classroom 101 with subject Math taught by teacher Alice in 2023
+    ('202', 'Grade 2', 2, 2, 2023), -- Classroom 202 with subject English taught by teacher Bob in 2023
+    ('303', 'Grade 3', 3, 2, 2023); -- Classroom 303 with subject Science taught by teacher Bob in 2023
+-- In this updated "ClassRoom" table, the "year" column is now added, and the data is inserted into the table with the specified year (2023 in this case) for each classroom along with the subject and teacher assignments.
+
+-- Now, each row in the "ClassRoom" table will have a "year" value, which represents the academic year in which the subject is taught by the teacher in that classroom. The "year" information allows you to differentiate the subject-teacher-classroom assignments for different years.
+
+
+
+postgres=# SELECT
+    s.subject_name AS subject,
+    t.first_name || ' ' || t.last_name AS teacher_name
+FROM
+    ClassRoom c
+INNER JOIN
+    Subject s ON c.subject_id = s.subject_id
+INNER JOIN
+    Teacher t ON c.teacher_id = t.teacher_id
+WHERE
+    c.room_number = '101'
+    -- Assuming year is stored in the year column of ClassRoom table
+    AND c.year = 2023;
+ subject | teacher_name  
+---------+---------------
+ English | Alice Johnson
+(1 row)
 
