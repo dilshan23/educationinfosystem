@@ -48,3 +48,8 @@ def generate_pdf_report(data):
 if __name__ == "__main__":
     student_data = get_student_data()
     generate_pdf_report(student_data)
+
+# Name | Classroom | Subject | Marks | Year
+# ------------------------------------------------------------
+# John Doe | 101 | Math | 90 | 2023
+# John Doe | 101 | English | 85 | 2023
