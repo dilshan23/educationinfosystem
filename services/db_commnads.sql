@@ -1,9 +1,18 @@
-postgres=# INSERT INTO student (id,name, age, marks, grade) VALUES
-    (0001,'John Doe', 20, 85, 'B'),
-    (0002,'Jane Smith', 22, 92, 'A'),
-    (0003,'Michael Johnson', 19, 78, 'C'),
-    (0004,'Emily Brown', 21, 95, 'A'),
-    (0005,'William Lee', 23, 70, 'C');
+-- Create Student Table
+CREATE TABLE Student (
+    student_id SERIAL PRIMARY KEY,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    date_of_birth DATE,
+    address TEXT,
+    email VARCHAR(100)
+);
+
+-- Insert data into the Student table
+INSERT INTO Student (first_name, last_name, date_of_birth, address, email)
+VALUES
+    ('John', 'Doe', '1995-03-15', '123 Main St, City', 'john.doe@example.com'),
+    ('Jane', 'Smith', '1996-08-20', '456 Elm St, Town', 'jane.smith@example.com');
 
 
 
