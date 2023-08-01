@@ -8,7 +8,7 @@ def get_student_data():
         host='localhost',
         database='postgres',
         user='postgres',
-        password='chess004'
+        password=''
     )
     cursor = connection.cursor()
     cursor.execute('''
