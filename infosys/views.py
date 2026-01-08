@@ -4,10 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from .models import Greeting,Post,BlogComments
 from .forms import BlogCommentsForm
 from .filters import UserFilter,BlogFilter
-
-
 import random
-
 from django.contrib.auth.decorators import login_required, permission_required
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404, render
@@ -19,21 +16,13 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-
-
-#dil
 from pymongo import *
 import pandas as pd
 from matplotlib import pyplot as plt
 from  bokeh.plotting import figure ,output_file,show
 from bokeh.embed import components
-
-
 import pandas as pd
 import datetime as dt
-
-
-
 
 def search(request):
     #user_list = User.objects.all()
@@ -44,8 +33,6 @@ def search(request):
 
     return render(request, 'search_userlist.html', {'filter': message_filter})
 
-
-
 def showform(request):
     form= BlogCommentsForm(request.POST or None)
     if form.is_valid():
@@ -55,26 +42,13 @@ def showform(request):
         
     return render(request, 'contact.html', context)
 
-
-
 # Create your views here.
 def index(request):
-
     context = {
      'posts':Post.objects.all()
     }
-
-
-    # get data from sqlite.db and convert to a pandas df and push to mlab cloud db
-
     dataposts1=Post.objects.first() #first row ,first column value
-
-    #content1 =dataposts1.content  #first row ,second olumn value
-
-
-    print(dataposts1)
-
-   
+    #content1 =dataposts1.content  #first row ,second olumn value 
     #postsDf = pd.DataFrame(Post.objects.all)
     # return HttpResponse('Hello from Python!')
     return render(request, "index.html",context)
@@ -84,32 +58,18 @@ def schools(request):
     return render(request, "schools.html")
 
 def research(request):
-
     return render(request, "cddsd.html")
 
 def dea(request):
-
-    
     return render(request, "dea.html")
-
-
-
-
-
 def visuals(request):
 
     s = [1,4,6,8]
-
-    print(s)
-
-
     h = [1,5,9,8]
-
     p = figure(plot_width=600, plot_height=600)
     p.vbar(x=s, width=0.5, bottom=0,
        top=h, color="black")
     #script, div = components(p)
-    
 
     MONGODB_URI = ""
     client = MongoClient(MONGODB_URI, connectTimeoutMS=1900000)
@@ -119,15 +79,9 @@ def visuals(request):
     data = pd.DataFrame(students)
 
     columnnames = list(data.head(0))
-
-
-    print(columnnames)
-
     data['grade5'] = pd.to_numeric(data.grade5)
 
     data['year'] = pd.to_numeric(data.year)
-
-
     #flights['arr_delay'].describe()
     stat = data['grade5'].describe()
     print(stat)
@@ -140,20 +94,8 @@ def visuals(request):
 
     script,div = components(p2)
 
-    script1,div1 = components(p)
-
-    
-
-
-
-
-
+    script1,div1 = components(p
     #p.vbar(x='COUNTRY_FLYING_MISSION', top='TOTAL_TONS', source=source, width=0.70, color=color_map)
-
-
-
-    
-
     #print(students)
 
 
@@ -163,22 +105,13 @@ def visuals(request):
 def experimentalstudies(request):
     MONGODB_URI = ""
     client = MongoClient(MONGODB_URI, connectTimeoutMS=1900000)
-    db = client.get_database("")
-
-
-   
-
-
-    
+    db = client.get_database(""
     students =  list(db.people.find() )#dil
     teachers = list(db.gurus.find())
     exams = list(db.vibagas.find())
     tests = list(db.tests.find())
 
     df1 = pd.DataFrame(students)
-
-
-
     #calculating age
     
     now = dt.date.today().year
